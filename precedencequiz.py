@@ -6,11 +6,25 @@ operators = [
 		#(14, "~{}", lambda x: ~x),
 		#(14, "+{}", lambda x: x),
 		#(14, "-{}", lambda x: -x),
-		(13, "{} * {}", lambda x, y: x * y),
-		(13, "{} / {}", lambda x, y: x / y),
-		(13, "{} % {}", lambda x, y: x % y),
-		(12, "{} + {}", lambda x, y: x + y),
-		(12, "{} - {}", lambda x, y: x - y)
+		(13, "{} * {}",  lambda x, y: x * y),
+		(13, "{} / {}",  lambda x, y: x / y),
+		(13, "{} % {}",  lambda x, y: x % y),
+		(12, "{} + {}",  lambda x, y: x + y),
+		(12, "{} - {}",  lambda x, y: x - y),
+		(11, "{} << {}", lambda x, y: x << y),
+		(11, "{} >> {}", lambda x, y: x >> y),
+		(10, "{} < {}",  lambda x, y: x < y),
+		(10, "{} <= {}", lambda x, y: x <= y),
+		(10, "{} > {}",  lambda x, y: x > y),
+		(10, "{} >= {}", lambda x, y: x >= y),
+		( 9, "{} == {}", lambda x, y: x == y),
+		( 9, "{} != {}", lambda x, y: x != y),
+		( 8, "{} & {}",  lambda x, y: x & y),
+		( 7, "{} ^ {}",  lambda x, y: x ^ y),
+		( 6, "{} | {}",  lambda x, y: x | y),
+		( 5, "{} && {}", lambda x, y: bool(x and y)),
+		( 4, "{} || {}", lambda x, y: bool(x or y)),
+		( 1, "{} , {}",  lambda x, y: y),
 		]
 
 random.seed()
@@ -27,8 +41,8 @@ print s
 ans1 = f2(f1(x[0], x[1]), x[2])
 ans2 = f1(x[0], f2(x[1], x[2]))
 
-print ans1
-print ans2
+print int(ans1)
+print int(ans2)
 
 
 
