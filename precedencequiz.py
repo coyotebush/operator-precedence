@@ -32,7 +32,8 @@ random.seed()
 
 x = [0, 1, 2, 3, 4, 5]
 
-while True:
+done = False
+while not done:
   random.shuffle(x)
   (p1, s1, f1) = random.choice(operators)
   (p2, s2, f2) = random.choice(operators)
@@ -42,26 +43,27 @@ while True:
       ans = f1(x[0], f2(x[1], x[2]))
     else:
       ans = f2(f1(x[0], x[1]), x[2])
-  except ZeroDivisionError, ValueError:
+  except (ZeroDivisionError, ValueError):
     continue
 
   s = s1.format(x[0], s2.format(x[1], x[2]))
   print
   print s
 
-  user_ans = float("inf")
-  try:
-    while user_ans != ans:
+  err = True
+  while not done and (err or user_ans != ans):
+    try:
       user_ans = raw_input("=> ")
       if user_ans[0] == "?":
         print int(ans)
-        break
-      try:
+        user_ans = ans
+      else:
         user_ans = int(user_ans)
-      except ValueError:
-        user_ans = float("inf")
-  except EOFError:
-    break
+      err = False
+    except (ValueError, IndexError):
+      err = True
+    except EOFError:
+      done = True
 
 
 
