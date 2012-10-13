@@ -50,20 +50,19 @@ while not done:
   print
   print s
 
-  err = True
-  while not done and (err or user_ans != ans):
+  while True:
     try:
       user_ans = raw_input("=> ")
       if user_ans[0] == "?":
         print int(ans)
-        user_ans = ans
-      else:
-        user_ans = int(user_ans)
-      err = False
-    except (ValueError, IndexError):
-      err = True
+        break
+      elif int(user_ans) == ans:
+        break
     except EOFError:
       done = True
+      break
+    except (ValueError, IndexError):
+      pass
 
 
 
