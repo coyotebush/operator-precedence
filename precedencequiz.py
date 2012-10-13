@@ -30,7 +30,7 @@ operators = [
 
 random.seed()
 
-x = [2, 3, 5]
+x = [0, 1, 2, 3, 4, 5]
 
 while True:
   random.shuffle(x)
