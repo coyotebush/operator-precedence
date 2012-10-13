@@ -42,7 +42,7 @@ while True:
       ans = f1(x[0], f2(x[1], x[2]))
     else:
       ans = f2(f1(x[0], x[1]), x[2])
-  except ZeroDivisionError:
+  except ZeroDivisionError, ValueError:
     continue
 
   s = s1.format(x[0], s2.format(x[1], x[2]))
