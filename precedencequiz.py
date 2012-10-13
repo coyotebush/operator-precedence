@@ -46,13 +46,18 @@ while True:
     continue
 
   s = s1.format(x[0], s2.format(x[1], x[2]))
+  print
   print s
 
   user_ans = float("inf")
   try:
     while user_ans != ans:
+      user_ans = raw_input("=> ")
+      if user_ans[0] == "?":
+        print int(ans)
+        break
       try:
-        user_ans = int(raw_input("=> "))
+        user_ans = int(user_ans)
       except ValueError:
         user_ans = float("inf")
   except EOFError:
